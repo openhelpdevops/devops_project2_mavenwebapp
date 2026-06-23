@@ -20,6 +20,6 @@
    - name: 
      copy:
        src: k8s-deploy.yml
-       dest: /home/ansadmin
+       dest: /home/sreejith
    - name : K8S Deployment
      command: kubectl apply -f k8s-deploy.yml
