@@ -366,7 +366,7 @@ a07f0e2b9fb6d948722279264386351e0c5878d1        refs/merge-requests/5/head
 
 ---
 
-## 10. Build Maven Application
+## 10. Manually package/Build Maven Application and make sure every steps in piple line works if we execute manually/
 
 ### Command
 
