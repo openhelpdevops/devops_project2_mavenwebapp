@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+
+    tools {
+        maven "Maven3.9.15"
+    }
+
+    environment {
+        REGISTRY_URL = 'nexus.openhelp.net'
+        REPO         = 'docker-private/sreejith'
+        IMAGE        = 'mavenwebapp'
+        TAG          = 'v1'
+
+        // Nexus credentials (IMPORTANT) When you write: NEXUS_CREDS = credentials('nexus-cred') Jenkins automatically generates:NEXUS_CREDS_USR   → username NEXUS_CREDS_PSW   → password
+        
+        NEXUS_CREDS = credentials('nexus-cred')
+    }
+
+    stages {
+
+        stage('Clone Repo') {
+            steps {
+                git branch: 'main',
+                    credentialsId: 'sreejithgit',
+                    url: 'https://gitlab.openhelp.net/sreejith/first_devops.git'
+            }
+        }
+
+        stage('Maven Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Docker Build & Push') {
+            steps {
+                sh 'docker build -t $REGISTRY_URL/$REPO/$IMAGE:$TAG .'
+
+                sh 'echo "$NEXUS_CREDS_PSW" | docker login $REGISTRY_URL -u "$NEXUS_CREDS_USR" --password-stdin'
+
+                sh 'docker push $REGISTRY_URL/$REPO/$IMAGE:$TAG'
+            }
+        }
+ 
+         stage('k8s deployment') {
+            steps {
+                sh 'kubectl apply -f k8s-deploy.yml'
+            }
+        }
+ 
+ 
+ 
+    }
+}

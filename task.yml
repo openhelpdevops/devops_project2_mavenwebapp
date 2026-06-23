@@ -5,15 +5,15 @@
     - name: Copy Dockerfile
       copy:
        src: Dockerfile
-       dest: /home/ansadmin/
+       dest: /home/sreejith/
     - name: Copy Artifact
       copy:
        src: target
-       dest: /home/ansadmin
+       dest: /home/sreejith
     - name : Build image
-      command: docker build -t ashokit/mavenwebapp .
+      command: docker build -t nexus.openhelp.net/docker-private/sreejith/mavenwebapp .
     - name : Push Docker Image
-      command: docker push ashokit/mavenwebapp
+      command: docker push nexus.openhelp.net/docker-private/sreejith/mavenwebapp
 - name: Second Play - K8s Deployment
   hosts: eks
   tasks:
