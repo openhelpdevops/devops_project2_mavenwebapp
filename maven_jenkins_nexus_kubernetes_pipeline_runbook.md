@@ -589,11 +589,6 @@ This output shows multiple image tags pointing to Maven web application images.
 
 ```bash
 sreejith@ci:~/devops_project2_mavenwebapp$ docker rmi nexus.openhelp.net/docker-private/sreejith/mavenwebapp:v1
-```
-
-### Remove old latest image tag
-
-```bash
 sreejith@ci:~/devops_project2_mavenwebapp$ docker rmi nexus.openhelp.net/docker-private/sreejith/mavenwebapp:latest
 ```
 
@@ -601,23 +596,8 @@ sreejith@ci:~/devops_project2_mavenwebapp$ docker rmi nexus.openhelp.net/docker-
 
 `docker rmi` removes local image tags. It does not delete the image from Nexus.
 
-### Tag image with v1
+### Tag image and Push image to Nexus
 
-```bash
-docker tag sreejith/mavenwebapp:latest nexus.openhelp.net/docker-private/sreejith/mavenwebapp:v1
-```
-
-### Push image to Nexus
-
-```bash
-docker push nexus.openhelp.net/docker-private/sreejith/mavenwebapp:latest
-```
-
-### Note
-
-In the original command, the image is tagged as `v1`, but pushed as `latest`. Make sure the pushed tag exists locally before running `docker push`.
-
-Correct matching example:
 
 ```bash
 docker tag sreejith/mavenwebapp:latest nexus.openhelp.net/docker-private/sreejith/mavenwebapp:latest
