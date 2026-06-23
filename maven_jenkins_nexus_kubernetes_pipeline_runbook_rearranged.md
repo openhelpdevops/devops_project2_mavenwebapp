@@ -1035,7 +1035,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     credentialsId: 'sreejithgit',
-                    url: 'https://github.com/openhelpdevops/devops_project2_mavenwebapp.git'
+                    url: 'https://gitlab.openhelp.net/sreejith/devops_project2_mavenwebapp.git'
             }
         }
 
@@ -1129,18 +1129,10 @@ stage('Clone Repo') {
     steps {
         git branch: 'main',
             credentialsId: 'sreejithgit',
-            url: 'https://github.com/openhelpdevops/devops_project2_mavenwebapp.git'
+            url: 'https://gitlab.openhelp.net/sreejith/devops_project2_mavenwebapp.git'
     }
 }
 ```
-
-Jenkins clones the source code from Git.
-
-> If your final repository is GitLab, replace the URL with:
->
-> ```text
-> https://gitlab.openhelp.net/sreejith/devops_project2_mavenwebapp.git
-> ```
 
 ### Stage 2: Maven Build
 
