@@ -12,7 +12,7 @@ Without a webhook, Jenkins will not know immediately when code is updated. You m
 
 With a webhook:
 
-- Developer pushes code to GitLab
+- Developer pushes code to GitLab and once code is approved and merged to main branch
 - GitLab sends an HTTP request to Jenkins
 - Jenkins automatically starts the pipeline
 - Build, Docker image creation, push to Nexus, and Kubernetes deployment can happen automatically
