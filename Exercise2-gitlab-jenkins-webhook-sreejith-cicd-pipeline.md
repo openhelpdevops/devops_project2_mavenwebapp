@@ -139,13 +139,13 @@ sreejith_cicd_pipeline
 Webhook URL format:
 
 ```text
-https://sreejith:<JENKINS_API_TOKEN>@jenkins.openhelp.net/job/sreejith_cicd_pipeline/build
+https://sreejith:<JENKINS_API_TOKEN>@jenkins.openhelp.net/job/sreejith_cicd_pipeline/build?token=sreejith-token
 ```
 
 Example safe format:
 
 ```text
-https://sreejith:xxxxxxxxxxxxxxxxxxxxxxxx@jenkins.openhelp.net/job/sreejith_cicd_pipeline/build
+https://sreejith:11c5d844679e81bf5a20c3451bf6490278@jenkins.openhelp.net/job/sreejith_cicd_pipeline/build?token=sreejith-token
 ```
 
 ### Explanation
